@@ -1,0 +1,26 @@
+[CLIENT] 0x180000f
+  [CLIENT_ID] 2de4e0f65-0ded-4bd8-8b50-3be725f577fe
+  [CLIENT_LEADER] 0x1800001
+  [WINDOW_ROLE] browser
+  [RES_NAME] Navigator
+  [RES_CLASS] Firefox
+  [WM_NAME] [SOLVED] XFCE4 Icon Problem - Mozilla Firefox
+  [WM_COMMAND] (1) "firefox"
+  [GEOMETRY] (849,96,985,854)
+  [GEOMETRY-MAXIMIZED] (849,96,985,854)
+  [SCREEN] 0
+  [DESK] 0
+  [FLAGS] 0x10000
+[CLIENT] 0x1a00004
+  [CLIENT_ID] 2fc532b24-f02c-4f81-aadb-23867a99f614
+  [CLIENT_LEADER] 0x1a00001
+  [WINDOW_ROLE] xfce4-terminal-1500529621-984060585
+  [RES_NAME] xfce4-terminal
+  [RES_CLASS] Xfce4-terminal
+  [WM_NAME] Terminal - toor@ea99dd510679: ~
+  [WM_COMMAND] (1) "xfce4-terminal"
+  [GEOMETRY] (240,66,858,452)
+  [GEOMETRY-MAXIMIZED] (240,66,858,452)
+  [SCREEN] 0
+  [DESK] 0
+  [FLAGS] 0x10000
