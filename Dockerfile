@@ -1,4 +1,6 @@
 FROM mcchae/sshd-x
+MAINTAINER MoonChang Chae mcchae@gmail.com
+LABEL Description="alpine desktop env over xfce with novnc, xrdp and openssh server"
 
 ENV LANG=ko_KR.UTF-8 \
     LANGUAGE=ko_KR.UTF-8 \
