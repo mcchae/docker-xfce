@@ -38,6 +38,8 @@
 
 ## 사용법
 
+### docker 이용
+
 ```bash
 # 내 데스크탑 이름
 MYDT=rdp
@@ -55,6 +57,32 @@ docker container run -it \
 ```
 
 > `-it` 대신 `-d` 옵션을 이용하면 백그라운드 서비스로 실행됩니다.
+
+### docker compose 이용
+
+`~/mydt.yml` 이라는 이름으로 다음의 내용을 저장합니다.
+
+``` yaml
+version: '2'
+services:
+  mydt:
+    image: "mcchae/xfce"
+    hostname: "mydt"
+    ports:
+     - "33899:3389"
+     - "60811:6081"
+    volumes:
+     - ${HOME}/dhv/toor:/home/
+```
+
+그 다음, 다음과 같이 실행합니다.
+
+```sh
+$ docker-compose -f ~/mydt.yml up
+```
+
+> `-d` 옵션을 이용하면 백그라운드 서비스로 실행됩니다.
+
 
 ## 실행 예
 
