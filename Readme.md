@@ -47,10 +47,10 @@ HP_RDP=33899
 HP_NOVNC=60811
 docker container run -it \
 	--name $MYDT \
+	--hostname $MYDT \
 	-p $HP_RDP:3389 \
 	-p $HP_NOVNC:6081 \
 	-v /dhv/xfce/toor:/home/toor \
-	--hostname $MYDT \
 	mcchae/xfce
 ```
 
