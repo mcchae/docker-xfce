@@ -68,12 +68,19 @@ services:
   mydt:
     image: "mcchae/xfce"
     hostname: "mydt"
+    environment:
+      VNC_GEOMETRY: "1440x900"
     ports:
      - "33899:3389"
      - "60811:6081"
     volumes:
      - ${HOME}/dhv/toor:/home/
 ```
+
+> * `VNC_GEOMETRY` 환경변수는 해상도를 지정합니다. xrdp 또는 noVNC 모두 적용됩니다. (위의 예에서는 1440x900 해상도로 지정하였습니다)
+> * `3389` 포트는 외부로 노출될 원격데스크탑 포트입니다. (위의 예에서는 33899 포트로 접근 가능합니다)
+> * `6081` 포트는 외부로 노출될 noVNC 포트입니다. (위의 예에서는 60811 포트로 접근 가능합니다)
+
 
 그 다음, 다음과 같이 실행합니다.
 
