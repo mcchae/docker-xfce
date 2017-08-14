@@ -37,11 +37,11 @@ if [ -n "$VNC_PASSWORD" ]; then
 fi
 
 if [ -n "$VNC_GEOMETRY" ]; then
-    echo "VNC_GEOMETRY=$VNC_GEOMETRY"
+	echo "VNC_GEOMETRY=$VNC_GEOMETRY"
     sed -i "s/1920x1080/$VNC_GEOMETRY/g" /etc/supervisor/conf.d/supervisord.conf
 fi
 
-cd /usr/lib/web && ./run.py > /var/log/web.log 2>&1 &
+cd /usr/lib/web && /usr/bin/python ./run.py > /var/log/web.log 2>&1 &
 # mkdir -p /run/nginx
 # nginx -c /etc/nginx/nginx.conf
 
