@@ -3,11 +3,11 @@
 upsert_toor()
 {
     TF=$1
-    if [ ${TF} = "." ];then
-        return 1
-    fi
     if [ ! -e /home/toor/${TF} ];then
         DN="/home/toor/$(dirname ${TF})"
+        if [ ${TF} = "/home/toor/." ];then # skip '.'
+            return 1
+        fi
         if [ ! -d ${DN} ];then
             mkdir -p ${DN}
         fi
