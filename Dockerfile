@@ -30,7 +30,7 @@ RUN apk --update --no-cache add \
         xf86-input-synaptics xf86-input-mouse xf86-input-keyboard \
         setxkbmap sudo util-linux dbus udev xauth supervisor \
         firefox-esr \
-        wget curl tmux python3 \
+        wget curl tmux \
     && rm -f /usr/bin/vi && ln -s /usr/bin/vim /usr/bin/vi \
     && apk add /tmp/apk/ossp-uuid-1.6.2-r0.apk \
     && apk add /tmp/apk/ossp-uuid-dev-1.6.2-r0.apk \
@@ -42,7 +42,7 @@ RUN apk --update --no-cache add \
 ADD chroot/etc /etc
 ADD chroot/usr /usr
 
-# if this is called "PIP_VERSION", pip explodes with "ValueError: invalid truth value '<VERSION>'"
+## if this is called "PIP_VERSION", pip explodes with "ValueError: invalid truth value '<VERSION>'"
 ENV PYTHON_PIP_VERSION 9.0.1
 RUN set -ex; \
     apk add --no-cache --virtual .fetch-deps libressl; \
@@ -62,7 +62,6 @@ RUN set -ex; \
         \) -exec rm -rf '{}' +; \
     rm -f get-pip.py
 RUN pip install virtualenv
-
 
 RUN for ic in `find /usr/share/icons/* -type d -maxdepth 0`;do gtk-update-icon-cache -ft $ic; done
 
