@@ -74,6 +74,7 @@ EXPOSE 3389 22
 
 # ADD chroot  /
 WORKDIR /
+# Todo: next is for nginx proxy setting for noVNC but does not work for now
 # RUN apk --update --no-cache add \
 #         nginx \
 #     && rm -rf /tmp/* /var/cache/apk/*
