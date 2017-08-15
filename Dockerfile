@@ -88,6 +88,6 @@ RUN apk --update add --virtual build-dependencies \
 EXPOSE 6081
 
 ADD chroot/startup.sh /
-ENV HOME=/home/toor \
-    SHELL=/bin/bash
+#ENV HOME=/home/toor \
+#    SHELL=/bin/bash
 ENTRYPOINT ["bash", "/startup.sh"]
