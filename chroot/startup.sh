@@ -8,7 +8,9 @@ upsert_toor()
         if [ ! -d ${DN} ];then
             mkdir -p ${DN}
         fi
-        cp -rf /usr/local/toor/${TF} /home/toor/${TF}
+        if [ -e /usr/local/toor/${TF} ];then
+            cp -rf /usr/local/toor/${TF} /home/toor/${TF}
+        fi
         if [ ${DN} != "/home/toor/." ];then # skip '.'
             chown -R toor:toor ${DN}
         fi
@@ -29,6 +31,7 @@ upsert_toor .uim.d
 upsert_toor .pip
 upsert_toor .vimrc
 upsert_toor .gitignore
+upsert_toor .pyenv
 
 
 if [ -n "$VNC_PASSWORD" ]; then
