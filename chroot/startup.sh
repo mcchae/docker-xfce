@@ -3,6 +3,9 @@
 upsert_toor()
 {
     TF=$1
+    if [ ${TF} = "." ];then
+        return 1
+    fi
     if [ ! -e /home/toor/${TF} ];then
         DN="/home/toor/$(dirname ${TF})"
         if [ ! -d ${DN} ];then
@@ -10,6 +13,7 @@ upsert_toor()
         fi
         cp -rf /usr/local/toor/${TF} /home/toor/${TF}
         chown -R toor:toor ${DN}
+        return 0
     fi
 }
 

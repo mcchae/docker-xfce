@@ -72,15 +72,6 @@ RUN sed -i '/TerminalServerUsers/d' /etc/xrdp/sesman.ini \
 
 EXPOSE 3389 22
 
-
-#ENV HOME=/home/toor \
-#    SHELL=/bin/bash
-#ENTRYPOINT ["bash", "/startup.sh"]
-
-
-
-#FROM mcchae/xfce-xrdp
-
 # ADD chroot  /
 WORKDIR /
 # RUN apk --update --no-cache add \
