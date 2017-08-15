@@ -5,14 +5,13 @@ upsert_toor()
     TF=$1
     if [ ! -e /home/toor/${TF} ];then
         DN="/home/toor/$(dirname ${TF})"
-        if [ ${DN} = "/home/toor/." ];then # skip '.'
-            return 1
-        fi
         if [ ! -d ${DN} ];then
             mkdir -p ${DN}
         fi
         cp -rf /usr/local/toor/${TF} /home/toor/${TF}
-        chown -R toor:toor ${DN}
+        if [ ${DN} != "/home/toor/." ];then # skip '.'
+            chown -R toor:toor ${DN}
+        fi
         return 0
     fi
 }
