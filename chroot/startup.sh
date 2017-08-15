@@ -47,6 +47,7 @@ if [ -n "$VNC_GEOMETRY" ]; then
 fi
 
 cd /usr/lib/web && /usr/bin/python ./run.py > /var/log/web.log 2>&1 &
+# Todo: next is for nginx proxy setting for noVNC but does not work for now
 # mkdir -p /run/nginx
 # nginx -c /etc/nginx/nginx.conf
 
