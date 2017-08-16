@@ -32,6 +32,7 @@ upsert_toor .pip
 upsert_toor .vimrc
 upsert_toor .gitignore
 upsert_toor .pyenv
+upsert_toor .autoenv
 
 
 if [ -n "$VNC_PASSWORD" ]; then
