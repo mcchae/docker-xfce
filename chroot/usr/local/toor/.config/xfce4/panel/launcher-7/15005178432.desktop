@@ -1,11 +1,11 @@
 [Desktop Entry]
-Exec=firefox %u
-Icon=firefox
+Exec=midori %u
+Icon=midori
 Type=Application
 Terminal=false
-Name=Firefox
+Name=Midori
 GenericName=Web Browser
 MimeType=text/html;
 StartupNotify=true
 Categories=Network;WebBrowser;
-X-XFCE-Source=file:///usr/share/applications/firefox.desktop
+X-XFCE-Source=file:///usr/share/applications/midori.desktop
