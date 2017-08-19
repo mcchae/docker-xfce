@@ -29,7 +29,7 @@ RUN apk --update --no-cache add \
         xrdp xvfb xfce4 slim \
         xf86-input-synaptics xf86-input-mouse xf86-input-keyboard \
         setxkbmap sudo util-linux dbus udev xauth supervisor \
-        midori \
+        firefox-esr \
         wget curl tmux \
     && rm -f /usr/bin/vi && ln -s /usr/bin/vim /usr/bin/vi \
     && apk add /tmp/apk/ossp-uuid-1.6.2-r0.apk \
