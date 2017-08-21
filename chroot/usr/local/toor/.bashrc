@@ -140,4 +140,4 @@ tmux attach-session -d'
 
 export XDG_CONFIG_HOME="~/.config"
 export LANG=ko_KR.UTF-8
-
+source ~/.autoenv/activate.sh
