@@ -82,7 +82,8 @@ WORKDIR /
 RUN apk --update add --virtual build-dependencies \
         python-dev build-base linux-headers \
     && pip install setuptools wheel && pip install -r /usr/lib/web/requirements.txt \
-    && apk del build-dependencies
+    && apk del build-dependencies \
+    && apk --update add grep
 
 EXPOSE 6081
 
