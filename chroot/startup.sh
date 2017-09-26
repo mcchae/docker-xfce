@@ -10,14 +10,16 @@ upsert_toor()
         fi
         if [ -e /usr/local/toor/${TF} ];then
             cp -rf /usr/local/toor/${TF} /home/toor/${TF}
+            chown -R toor:toor /home/toor/${TF}
         fi
-        if [ ${DN} != "/home/toor/." ];then # skip '.'
-            chown -R toor:toor ${DN}
-        fi
+#        if [ ${DN} != "/home/toor/." ];then # skip '.'
+#            chown -R toor:toor ${DN}
+#        fi
         return 0
     fi
 }
 
+chown -R toor:toor /home/toor
 sh /usr/local/bin/docker-entrypoint.sh
 
 upsert_toor .bashrc
