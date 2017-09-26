@@ -41,6 +41,7 @@ RUN apk --update --no-cache add \
 
 ADD chroot/etc /etc
 ADD chroot/usr /usr
+RUN chown -R toor:toor /usr/local/toor
 
 ## if this is called "PIP_VERSION", pip explodes with "ValueError: invalid truth value '<VERSION>'"
 ENV PYTHON_PIP_VERSION 9.0.1
