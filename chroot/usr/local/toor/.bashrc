@@ -2,6 +2,18 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+# for terminal ls color
+export PS1="\[\033[36m\]\u\[\033[m\]@\[\033[32m\]\h:\[\033[33;1m\]\w\[\033[m\]\$ "
+export CLICOLOR=1
+export LSCOLORS=ExFxBxDxCxegedabagacad
+alias ls='ls -GFh'
+alias ll='ls -l'
+LC_CTYPE="ko_KR.UTF-8"
+
+alias tmb='tmux new-session -d && tmux split-window -h && tmux split-window -v && tmux select-pane -L && tmux split-window -v && tmux select-pane -U && tmux attach-session -d'
+
+alias tms='tmux new-session -d && tmux split-window -v && tmux split-window -v && tmux select-pane -U && tmux select-pane -U && tmux split-window -v && tmux select-pane -U && tmux attach-session -d'
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -113,23 +125,6 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
-
-alias tmb='tmux new-session -d
-tmux split-window -h
-tmux split-window -v
-tmux select-pane -L
-tmux split-window -v
-tmux select-pane -U
-tmux attach-session -d'
-
-alias tms='tmux new-session -d
-tmux split-window -v
-tmux split-window -v
-tmux select-pane -U
-tmux select-pane -U
-tmux split-window -v
-tmux select-pane -U
-tmux attach-session -d'
 
 ## change wall paper
 #xfconf-query -c xfce4-desktop -m
