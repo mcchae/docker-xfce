@@ -129,10 +129,6 @@ fi
 ## change wall paper
 #xfconf-query -c xfce4-desktop -m
 
-#xfconf-query --channel xfce4-desktop \
-#	--property /backdrop/screen0/monitor0/workspace0/last-image 
-#	--set /home/toor/.wallpapers/02989_fieldoflight_3840x2160.jpg
-
 export XDG_CONFIG_HOME="~/.config"
 export LANG=ko_KR.UTF-8
 source ~/.autoenv/activate.sh

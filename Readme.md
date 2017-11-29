@@ -28,7 +28,7 @@
 * Xface의 디폴트 패널을 LXDE의 것과 최대한 유사하게 만들어 놓았습니다. (하단 1개의 패널)
 * 터미널의 배경 색이 새로 뜰 때마다 변경됩니다. (Xfce-Terminal의 디폴트 속성입니다)
 * Firefox 웹브라우저를 설치했습니다. 
-* 파이썬 자동 환경 설정을 위한 autoenv를 `/home/toor/.autoenv`에 설치했습니다.
+* 파이썬 자동 환경 설정을 위한 autoenv를 `/root/.autoenv`에 설치했습니다.
 
 또한 외부에서 접속할 수 있게 작업된 프로토콜(서비스) 입니다. 필요한 포트만 호스트 포트로 remap 시키면 되겠습니다.
 
@@ -53,7 +53,7 @@ docker container run -it \
 	--hostname $MYDT \
 	-p $HP_RDP:3389 \
 	-p $HP_NOVNC:6081 \
-	-v /dhv/xfce/toor:/home/toor \
+	-v /dhv/xfce/root:/root \
 	mcchae/xfce
 ```
 
@@ -75,15 +75,15 @@ services:
      - "33899:3389"
      - "60811:6081"
     volumes:
-     - ${HOME}/dhv/toor:/home/toor
-     - ${HOME}/work:/home/toor/work
+     - ${HOME}/dhv/root:/root
+     - ${HOME}/work:/root/work
 ```
 
 > * `VNC_GEOMETRY` 환경변수는 해상도를 지정합니다. xrdp 또는 noVNC 모두 적용됩니다. (위의 예에서는 1440x900 해상도로 지정하였습니다)
 > * `3389` 포트는 외부로 노출될 원격데스크탑 포트입니다. (위의 예에서는 33899 포트로 접근 가능합니다)
 > * `6081` 포트는 외부로 노출될 noVNC 포트입니다. (위의 예에서는 60811 포트로 접근 가능합니다)
-> * docker를 돌리는 호스트에 `$HOME/dhv`라는 폴더가 있고 이 폴더에 있는 `toor` 디렉터리가 docker 컨테이너의 `/home/toor` 디렉터리로 볼륨 마운트되어 toor 홈 폴더는 영속성을 갖습니다
-> * `$HOME/work` 라는 폴더에 모든 프로젝트가 있고 작업을 하는데 이것이 컨테이너의 `/home/toor/work`로 볼륨 마운트되어 프로젝트 작업을 합니다
+> * docker를 돌리는 호스트에 `$HOME/dhv`라는 폴더가 있고 이 폴더에 있는 `root` 디렉터리가 docker 컨테이너의 `/root` 디렉터리로 볼륨 마운트되어 root 홈 폴더는 영속성을 갖습니다
+> * `$HOME/work` 라는 폴더에 모든 프로젝트가 있고 작업을 하는데 이것이 컨테이너의 `/root/work`로 볼륨 마운트되어 프로젝트 작업을 합니다
 
 
 그 다음, 다음과 같이 실행합니다.
@@ -126,7 +126,7 @@ Firfox 환경입니다.
 ### 원격 데스크탑으로 연결
 
 ![06_rdp_login](06_rdp_login.png)
-이제는 원격 데스크탑으로 연결합니다. `toor`사용자에 암호는 `r`입니다. 
+이제는 원격 데스크탑으로 연결합니다. `roor`사용자에 암호는 `r`입니다. 
 
 > 보안이 중요한 환경에서는 꼭 암호를 설정해 주시기 바랍니다.
 

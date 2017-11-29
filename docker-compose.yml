@@ -7,5 +7,5 @@ services:
       - "33899:3389"
       - "60811:6081"
     volumes:
-      - ${HOME}/dhv/toor:/home/toor
-      - ${HOME}/work:/home/toor/work
+      - ${HOME}/dhv/root:/root
+      - ${HOME}/work:/root/work

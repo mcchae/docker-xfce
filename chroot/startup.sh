@@ -1,25 +1,22 @@
 #!/bin/bash
 
+# 20171129 : Windows does not support toor permission so change toor's home into /root
 upsert_toor()
 {
     TF=$1
-    if [ ! -e /home/toor/${TF} ];then
-        DN="/home/toor/$(dirname ${TF})"
+    if [ ! -e /root/${TF} ];then
+        DN="/root/$(dirname ${TF})"
         if [ ! -d ${DN} ];then
             mkdir -p ${DN}
         fi
         if [ -e /usr/local/toor/${TF} ];then
-            cp -rf /usr/local/toor/${TF} /home/toor/${TF}
-            chown -R toor:toor /home/toor/${TF}
+            cp -rf /usr/local/toor/${TF} /root/${TF}
         fi
-#        if [ ${DN} != "/home/toor/." ];then # skip '.'
-#            chown -R toor:toor ${DN}
-#        fi
         return 0
     fi
 }
 
-chown -R toor:toor /home/toor
+#chown -R toor:toor /root
 sh /usr/local/bin/docker-entrypoint.sh
 
 upsert_toor .bashrc
