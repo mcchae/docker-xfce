@@ -85,6 +85,8 @@ RUN apk --update add --virtual build-dependencies \
     && apk del build-dependencies \
     && apk --update add grep
 
+RUN sed -i -e 's/\/ash/\/bash/g' /etc/passwd
+
 EXPOSE 6081
 
 ADD chroot/startup.sh /
