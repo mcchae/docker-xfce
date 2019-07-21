@@ -11,6 +11,11 @@ ENV LANG=ko_KR.UTF-8 \
 ADD chroot/tmp /tmp
 RUN cp /tmp/apk/.abuild/-57cfc5fa.rsa.pub /etc/apk/keys
 
+# to suppress: so:libcrypto.so.1.0.0 (missing):
+RUN cp -f /etc/apk/repositories /etc/apk/repositories.org \
+    && echo 'http://dl-cdn.alpinelinux.org/alpine/v3.8/main' >> /etc/apk/repositories \
+    && apk add libssl1.0
+
 # for hangul using uim from source
 WORKDIR /tmp/src
 RUN apk --update add --virtual build-dependencies \
@@ -43,7 +48,8 @@ ADD chroot/etc /etc
 ADD chroot/usr /usr
 
 ## if this is called "PIP_VERSION", pip explodes with "ValueError: invalid truth value '<VERSION>'"
-ENV PYTHON_PIP_VERSION 9.0.1
+#ENV PYTHON_PIP_VERSION 9.0.1
+ENV PYTHON_PIP_VERSION 19.1.1
 RUN set -ex; \
     apk add --no-cache --virtual .fetch-deps libressl; \
     wget -O get-pip.py 'https://bootstrap.pypa.io/get-pip.py'; \
@@ -79,7 +85,8 @@ WORKDIR /
 #     && rm -rf /tmp/* /var/cache/apk/*
 
 
-RUN apk --update add --virtual build-dependencies \
+RUN mv -f /etc/apk/repositories.org /etc/apk/repositories \
+    && apk --update add --virtual build-dependencies \
         python-dev build-base linux-headers \
     && pip install setuptools wheel && pip install -r /usr/lib/web/requirements.txt \
     && apk del build-dependencies \
